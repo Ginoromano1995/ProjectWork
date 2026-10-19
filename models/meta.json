@@ -1,0 +1,12 @@
+{
+  "features": [
+    "recency",
+    "frequency",
+    "monetary_avg"
+  ],
+  "k": 4,
+  "motivazione_k": "K=4 ha la silhouette piu' alta (0.4330) tra le configurazioni con 3-5 gruppi richieste dalla traccia.",
+  "random_state": 42,
+  "stabilita_ari_media": 0.9976,
+  "stabilita_ari_std": 0.0043
+}
