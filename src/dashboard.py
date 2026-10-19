@@ -89,6 +89,9 @@ def classify(raw: pd.DataFrame) -> pd.DataFrame:
 base_df = load_data()
 scaler, kmeans, pca, mapping, meta = load_models()
 
+# Rilevamento automatico della colonna categoria (supporta sia preferred_category che top_category)
+CAT_COL = next((c for c in ["preferred_category", "top_category", "categoria"] if c in base_df.columns), "preferred_category")
+
 # Clienti aggiunti durante la sessione (classificati con il modello salvato)
 if "new_customers" not in st.session_state:
     st.session_state.new_customers = []
@@ -116,13 +119,13 @@ if not isinstance(dates, (tuple, list)) or len(dates) != 2:
 start_date, end_date = dates
 
 selected_region = st.sidebar.selectbox("Zona geografica", ["Tutte"] + sorted(df["region"].unique()))
-selected_category = st.sidebar.selectbox("Categoria di servizio preferita", ["Tutte"] + sorted(df["preferred_category"].unique()))
+selected_category = st.sidebar.selectbox("Categoria di servizio preferita", ["Tutte"] + sorted(df[CAT_COL].unique()))
 
 filtered_df = df[(df["signup_date"].dt.date >= start_date) & (df["signup_date"].dt.date <= end_date)]
 if selected_region != "Tutte":
     filtered_df = filtered_df[filtered_df["region"] == selected_region]
 if selected_category != "Tutte":
-    filtered_df = filtered_df[filtered_df["preferred_category"] == selected_category]
+    filtered_df = filtered_df[filtered_df[CAT_COL] == selected_category]
 
 if filtered_df.empty:
     st.warning("⚠️ Nessun cliente corrisponde ai filtri selezionati.")
@@ -152,7 +155,7 @@ with tab1:
     with col_a:
         fig = px.scatter(
             filtered_df, x=x_axis, y=y_axis, color="cluster_label", size="frequency",
-            hover_name="customer_id", hover_data=["region", "preferred_category"],
+            hover_name="customer_id", hover_data=["region", CAT_COL],
             color_discrete_map=COLOR_MAP, labels={**AXIS_LABELS, "cluster_label": "Segmento"},
             title="Segmenti di clientela (dimensione bolla = frequenza)",
         )
@@ -208,7 +211,7 @@ with tab2:
     if submitted:
         row = pd.DataFrame([{
             "customer_id": f"NEW-{len(st.session_state.new_customers) + 1:03d}",
-            "signup_date": pd.Timestamp(signup), "region": reg, "preferred_category": cat,
+            "signup_date": pd.Timestamp(signup), "region": reg, CAT_COL: cat,
             "recency": rec, "frequency": freq, "monetary_avg": avg, "total_spent": round(freq * avg, 2),
         }])
         result = classify(row).iloc[0]
