@@ -11,7 +11,10 @@ import pandas as pd
 import plotly.express as px
 import streamlit as st
 
+# Radice del progetto: se lo script si trova in src/, dati e modelli stanno nella cartella superiore
 BASE_DIR = Path(__file__).resolve().parent
+if BASE_DIR.name == "src":
+    BASE_DIR = BASE_DIR.parent
 DATA_PATH = BASE_DIR / "data" / "processed_customers.csv"
 MODELS_DIR = BASE_DIR / "models"
 REPORTS_DIR = BASE_DIR / "reports"

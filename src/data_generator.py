@@ -19,7 +19,10 @@ from pathlib import Path
 import numpy as np
 import pandas as pd
 
+# Radice del progetto: se lo script si trova in src/, dati e modelli stanno nella cartella superiore
 BASE_DIR = Path(__file__).resolve().parent
+if BASE_DIR.name == "src":
+    BASE_DIR = BASE_DIR.parent
 DATA_DIR = BASE_DIR / "data"
 
 REGIONS = ["Nord", "Centro", "Sud", "Isole"]

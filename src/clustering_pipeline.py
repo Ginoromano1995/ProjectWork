@@ -27,7 +27,10 @@ from sklearn.metrics import adjusted_rand_score, davies_bouldin_score, silhouett
 from sklearn.mixture import GaussianMixture
 from sklearn.preprocessing import StandardScaler
 
+# Radice del progetto: se lo script si trova in src/, dati e modelli stanno nella cartella superiore
 BASE_DIR = Path(__file__).resolve().parent
+if BASE_DIR.name == "src":
+    BASE_DIR = BASE_DIR.parent
 DATA_DIR = BASE_DIR / "data"
 MODELS_DIR = BASE_DIR / "models"
 REPORTS_DIR = BASE_DIR / "reports"
