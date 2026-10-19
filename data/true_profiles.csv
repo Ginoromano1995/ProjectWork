@@ -1,0 +1,501 @@
+customer_id,true_profile
+CUST_1000,Fedeli
+CUST_1001,A Rischio
+CUST_1002,Fedeli
+CUST_1003,Nuovi/Occasionali
+CUST_1004,Nuovi/Occasionali
+CUST_1005,Campioni
+CUST_1006,A Rischio
+CUST_1007,Nuovi/Occasionali
+CUST_1008,Nuovi/Occasionali
+CUST_1009,Campioni
+CUST_1010,A Rischio
+CUST_1011,Campioni
+CUST_1012,Nuovi/Occasionali
+CUST_1013,A Rischio
+CUST_1014,Nuovi/Occasionali
+CUST_1015,A Rischio
+CUST_1016,Nuovi/Occasionali
+CUST_1017,Campioni
+CUST_1018,A Rischio
+CUST_1019,A Rischio
+CUST_1020,Nuovi/Occasionali
+CUST_1021,Campioni
+CUST_1022,Nuovi/Occasionali
+CUST_1023,Nuovi/Occasionali
+CUST_1024,Fedeli
+CUST_1025,Fedeli
+CUST_1026,Campioni
+CUST_1027,A Rischio
+CUST_1028,Campioni
+CUST_1029,Fedeli
+CUST_1030,A Rischio
+CUST_1031,Campioni
+CUST_1032,A Rischio
+CUST_1033,Fedeli
+CUST_1034,A Rischio
+CUST_1035,A Rischio
+CUST_1036,Campioni
+CUST_1037,Fedeli
+CUST_1038,A Rischio
+CUST_1039,Campioni
+CUST_1040,Nuovi/Occasionali
+CUST_1041,Fedeli
+CUST_1042,Nuovi/Occasionali
+CUST_1043,Fedeli
+CUST_1044,Nuovi/Occasionali
+CUST_1045,Fedeli
+CUST_1046,Fedeli
+CUST_1047,Nuovi/Occasionali
+CUST_1048,Nuovi/Occasionali
+CUST_1049,Campioni
+CUST_1050,A Rischio
+CUST_1051,Campioni
+CUST_1052,Campioni
+CUST_1053,Nuovi/Occasionali
+CUST_1054,Fedeli
+CUST_1055,A Rischio
+CUST_1056,Campioni
+CUST_1057,Nuovi/Occasionali
+CUST_1058,A Rischio
+CUST_1059,Nuovi/Occasionali
+CUST_1060,Campioni
+CUST_1061,A Rischio
+CUST_1062,A Rischio
+CUST_1063,Campioni
+CUST_1064,Fedeli
+CUST_1065,A Rischio
+CUST_1066,A Rischio
+CUST_1067,Nuovi/Occasionali
+CUST_1068,Fedeli
+CUST_1069,Campioni
+CUST_1070,Fedeli
+CUST_1071,A Rischio
+CUST_1072,Nuovi/Occasionali
+CUST_1073,Fedeli
+CUST_1074,A Rischio
+CUST_1075,Fedeli
+CUST_1076,Fedeli
+CUST_1077,Nuovi/Occasionali
+CUST_1078,Campioni
+CUST_1079,A Rischio
+CUST_1080,Fedeli
+CUST_1081,A Rischio
+CUST_1082,Nuovi/Occasionali
+CUST_1083,A Rischio
+CUST_1084,Fedeli
+CUST_1085,Nuovi/Occasionali
+CUST_1086,Nuovi/Occasionali
+CUST_1087,A Rischio
+CUST_1088,Fedeli
+CUST_1089,Campioni
+CUST_1090,Campioni
+CUST_1091,Nuovi/Occasionali
+CUST_1092,Nuovi/Occasionali
+CUST_1093,Fedeli
+CUST_1094,A Rischio
+CUST_1095,Campioni
+CUST_1096,A Rischio
+CUST_1097,Nuovi/Occasionali
+CUST_1098,Campioni
+CUST_1099,Fedeli
+CUST_1100,A Rischio
+CUST_1101,A Rischio
+CUST_1102,Nuovi/Occasionali
+CUST_1103,Nuovi/Occasionali
+CUST_1104,A Rischio
+CUST_1105,Campioni
+CUST_1106,A Rischio
+CUST_1107,Fedeli
+CUST_1108,Nuovi/Occasionali
+CUST_1109,Campioni
+CUST_1110,Campioni
+CUST_1111,Nuovi/Occasionali
+CUST_1112,Fedeli
+CUST_1113,Nuovi/Occasionali
+CUST_1114,Nuovi/Occasionali
+CUST_1115,Fedeli
+CUST_1116,A Rischio
+CUST_1117,Campioni
+CUST_1118,Nuovi/Occasionali
+CUST_1119,Fedeli
+CUST_1120,Nuovi/Occasionali
+CUST_1121,Campioni
+CUST_1122,Nuovi/Occasionali
+CUST_1123,Campioni
+CUST_1124,A Rischio
+CUST_1125,A Rischio
+CUST_1126,Campioni
+CUST_1127,Campioni
+CUST_1128,Fedeli
+CUST_1129,A Rischio
+CUST_1130,Nuovi/Occasionali
+CUST_1131,Fedeli
+CUST_1132,Nuovi/Occasionali
+CUST_1133,A Rischio
+CUST_1134,Campioni
+CUST_1135,Campioni
+CUST_1136,Fedeli
+CUST_1137,Nuovi/Occasionali
+CUST_1138,Nuovi/Occasionali
+CUST_1139,A Rischio
+CUST_1140,A Rischio
+CUST_1141,Fedeli
+CUST_1142,A Rischio
+CUST_1143,A Rischio
+CUST_1144,A Rischio
+CUST_1145,A Rischio
+CUST_1146,Fedeli
+CUST_1147,Fedeli
+CUST_1148,A Rischio
+CUST_1149,Fedeli
+CUST_1150,A Rischio
+CUST_1151,Nuovi/Occasionali
+CUST_1152,Fedeli
+CUST_1153,Campioni
+CUST_1154,Campioni
+CUST_1155,A Rischio
+CUST_1156,A Rischio
+CUST_1157,Nuovi/Occasionali
+CUST_1158,A Rischio
+CUST_1159,Nuovi/Occasionali
+CUST_1160,Nuovi/Occasionali
+CUST_1161,Campioni
+CUST_1162,Fedeli
+CUST_1163,Fedeli
+CUST_1164,Nuovi/Occasionali
+CUST_1165,A Rischio
+CUST_1166,Campioni
+CUST_1167,A Rischio
+CUST_1168,Nuovi/Occasionali
+CUST_1169,Campioni
+CUST_1170,Fedeli
+CUST_1171,A Rischio
+CUST_1172,Fedeli
+CUST_1173,Nuovi/Occasionali
+CUST_1174,Campioni
+CUST_1175,Fedeli
+CUST_1176,Nuovi/Occasionali
+CUST_1177,A Rischio
+CUST_1178,A Rischio
+CUST_1179,Fedeli
+CUST_1180,Nuovi/Occasionali
+CUST_1181,Campioni
+CUST_1182,Nuovi/Occasionali
+CUST_1183,A Rischio
+CUST_1184,A Rischio
+CUST_1185,Nuovi/Occasionali
+CUST_1186,A Rischio
+CUST_1187,Campioni
+CUST_1188,Campioni
+CUST_1189,Fedeli
+CUST_1190,Nuovi/Occasionali
+CUST_1191,Campioni
+CUST_1192,Fedeli
+CUST_1193,Nuovi/Occasionali
+CUST_1194,Nuovi/Occasionali
+CUST_1195,Fedeli
+CUST_1196,Nuovi/Occasionali
+CUST_1197,Fedeli
+CUST_1198,Fedeli
+CUST_1199,Nuovi/Occasionali
+CUST_1200,Fedeli
+CUST_1201,Fedeli
+CUST_1202,Campioni
+CUST_1203,Campioni
+CUST_1204,Nuovi/Occasionali
+CUST_1205,Fedeli
+CUST_1206,Fedeli
+CUST_1207,Nuovi/Occasionali
+CUST_1208,Fedeli
+CUST_1209,Fedeli
+CUST_1210,Campioni
+CUST_1211,Fedeli
+CUST_1212,Nuovi/Occasionali
+CUST_1213,Campioni
+CUST_1214,Fedeli
+CUST_1215,Fedeli
+CUST_1216,Campioni
+CUST_1217,Nuovi/Occasionali
+CUST_1218,Campioni
+CUST_1219,Campioni
+CUST_1220,A Rischio
+CUST_1221,A Rischio
+CUST_1222,Fedeli
+CUST_1223,A Rischio
+CUST_1224,A Rischio
+CUST_1225,Campioni
+CUST_1226,A Rischio
+CUST_1227,Nuovi/Occasionali
+CUST_1228,Fedeli
+CUST_1229,Fedeli
+CUST_1230,Campioni
+CUST_1231,A Rischio
+CUST_1232,Campioni
+CUST_1233,Nuovi/Occasionali
+CUST_1234,Campioni
+CUST_1235,Fedeli
+CUST_1236,Fedeli
+CUST_1237,A Rischio
+CUST_1238,Fedeli
+CUST_1239,A Rischio
+CUST_1240,A Rischio
+CUST_1241,A Rischio
+CUST_1242,Fedeli
+CUST_1243,Nuovi/Occasionali
+CUST_1244,Fedeli
+CUST_1245,Fedeli
+CUST_1246,Fedeli
+CUST_1247,Fedeli
+CUST_1248,Fedeli
+CUST_1249,Nuovi/Occasionali
+CUST_1250,A Rischio
+CUST_1251,Campioni
+CUST_1252,A Rischio
+CUST_1253,Campioni
+CUST_1254,Nuovi/Occasionali
+CUST_1255,A Rischio
+CUST_1256,Nuovi/Occasionali
+CUST_1257,Fedeli
+CUST_1258,Nuovi/Occasionali
+CUST_1259,Campioni
+CUST_1260,Fedeli
+CUST_1261,Campioni
+CUST_1262,Campioni
+CUST_1263,Fedeli
+CUST_1264,Nuovi/Occasionali
+CUST_1265,Fedeli
+CUST_1266,Fedeli
+CUST_1267,Nuovi/Occasionali
+CUST_1268,Fedeli
+CUST_1269,A Rischio
+CUST_1270,A Rischio
+CUST_1271,Fedeli
+CUST_1272,Nuovi/Occasionali
+CUST_1273,Fedeli
+CUST_1274,Fedeli
+CUST_1275,A Rischio
+CUST_1276,Nuovi/Occasionali
+CUST_1277,Campioni
+CUST_1278,A Rischio
+CUST_1279,Fedeli
+CUST_1280,Fedeli
+CUST_1281,Fedeli
+CUST_1282,Fedeli
+CUST_1283,Nuovi/Occasionali
+CUST_1284,Fedeli
+CUST_1285,Campioni
+CUST_1286,Nuovi/Occasionali
+CUST_1287,A Rischio
+CUST_1288,Fedeli
+CUST_1289,Nuovi/Occasionali
+CUST_1290,Campioni
+CUST_1291,Nuovi/Occasionali
+CUST_1292,Nuovi/Occasionali
+CUST_1293,Nuovi/Occasionali
+CUST_1294,A Rischio
+CUST_1295,Campioni
+CUST_1296,Fedeli
+CUST_1297,Fedeli
+CUST_1298,Nuovi/Occasionali
+CUST_1299,Fedeli
+CUST_1300,A Rischio
+CUST_1301,Campioni
+CUST_1302,Fedeli
+CUST_1303,Fedeli
+CUST_1304,Fedeli
+CUST_1305,Campioni
+CUST_1306,Nuovi/Occasionali
+CUST_1307,Campioni
+CUST_1308,Nuovi/Occasionali
+CUST_1309,A Rischio
+CUST_1310,Fedeli
+CUST_1311,Fedeli
+CUST_1312,A Rischio
+CUST_1313,A Rischio
+CUST_1314,A Rischio
+CUST_1315,A Rischio
+CUST_1316,Campioni
+CUST_1317,A Rischio
+CUST_1318,A Rischio
+CUST_1319,Campioni
+CUST_1320,Fedeli
+CUST_1321,Nuovi/Occasionali
+CUST_1322,Fedeli
+CUST_1323,Campioni
+CUST_1324,Nuovi/Occasionali
+CUST_1325,Fedeli
+CUST_1326,Fedeli
+CUST_1327,Nuovi/Occasionali
+CUST_1328,Campioni
+CUST_1329,A Rischio
+CUST_1330,A Rischio
+CUST_1331,Nuovi/Occasionali
+CUST_1332,A Rischio
+CUST_1333,Nuovi/Occasionali
+CUST_1334,Fedeli
+CUST_1335,Fedeli
+CUST_1336,Campioni
+CUST_1337,Nuovi/Occasionali
+CUST_1338,A Rischio
+CUST_1339,Fedeli
+CUST_1340,Fedeli
+CUST_1341,Nuovi/Occasionali
+CUST_1342,A Rischio
+CUST_1343,Fedeli
+CUST_1344,A Rischio
+CUST_1345,Nuovi/Occasionali
+CUST_1346,Fedeli
+CUST_1347,Nuovi/Occasionali
+CUST_1348,Nuovi/Occasionali
+CUST_1349,Campioni
+CUST_1350,Nuovi/Occasionali
+CUST_1351,A Rischio
+CUST_1352,Fedeli
+CUST_1353,Campioni
+CUST_1354,Campioni
+CUST_1355,A Rischio
+CUST_1356,Fedeli
+CUST_1357,Campioni
+CUST_1358,Nuovi/Occasionali
+CUST_1359,Nuovi/Occasionali
+CUST_1360,Nuovi/Occasionali
+CUST_1361,A Rischio
+CUST_1362,Campioni
+CUST_1363,Campioni
+CUST_1364,A Rischio
+CUST_1365,Fedeli
+CUST_1366,A Rischio
+CUST_1367,Campioni
+CUST_1368,A Rischio
+CUST_1369,Campioni
+CUST_1370,Fedeli
+CUST_1371,A Rischio
+CUST_1372,Fedeli
+CUST_1373,A Rischio
+CUST_1374,Fedeli
+CUST_1375,Nuovi/Occasionali
+CUST_1376,A Rischio
+CUST_1377,A Rischio
+CUST_1378,Nuovi/Occasionali
+CUST_1379,A Rischio
+CUST_1380,Fedeli
+CUST_1381,Fedeli
+CUST_1382,A Rischio
+CUST_1383,Fedeli
+CUST_1384,Fedeli
+CUST_1385,A Rischio
+CUST_1386,Campioni
+CUST_1387,Fedeli
+CUST_1388,Nuovi/Occasionali
+CUST_1389,A Rischio
+CUST_1390,Fedeli
+CUST_1391,Nuovi/Occasionali
+CUST_1392,Fedeli
+CUST_1393,Fedeli
+CUST_1394,Fedeli
+CUST_1395,A Rischio
+CUST_1396,Nuovi/Occasionali
+CUST_1397,A Rischio
+CUST_1398,Fedeli
+CUST_1399,A Rischio
+CUST_1400,Campioni
+CUST_1401,Campioni
+CUST_1402,Fedeli
+CUST_1403,Campioni
+CUST_1404,Fedeli
+CUST_1405,Nuovi/Occasionali
+CUST_1406,Fedeli
+CUST_1407,A Rischio
+CUST_1408,A Rischio
+CUST_1409,Fedeli
+CUST_1410,A Rischio
+CUST_1411,Campioni
+CUST_1412,Fedeli
+CUST_1413,A Rischio
+CUST_1414,Campioni
+CUST_1415,A Rischio
+CUST_1416,A Rischio
+CUST_1417,Campioni
+CUST_1418,A Rischio
+CUST_1419,A Rischio
+CUST_1420,Fedeli
+CUST_1421,Nuovi/Occasionali
+CUST_1422,Nuovi/Occasionali
+CUST_1423,Campioni
+CUST_1424,Nuovi/Occasionali
+CUST_1425,Campioni
+CUST_1426,Nuovi/Occasionali
+CUST_1427,A Rischio
+CUST_1428,Nuovi/Occasionali
+CUST_1429,Campioni
+CUST_1430,Fedeli
+CUST_1431,Campioni
+CUST_1432,A Rischio
+CUST_1433,Campioni
+CUST_1434,Nuovi/Occasionali
+CUST_1435,Fedeli
+CUST_1436,Nuovi/Occasionali
+CUST_1437,Nuovi/Occasionali
+CUST_1438,Campioni
+CUST_1439,A Rischio
+CUST_1440,Campioni
+CUST_1441,Fedeli
+CUST_1442,Fedeli
+CUST_1443,A Rischio
+CUST_1444,Nuovi/Occasionali
+CUST_1445,Fedeli
+CUST_1446,A Rischio
+CUST_1447,Fedeli
+CUST_1448,A Rischio
+CUST_1449,A Rischio
+CUST_1450,Campioni
+CUST_1451,Nuovi/Occasionali
+CUST_1452,A Rischio
+CUST_1453,A Rischio
+CUST_1454,A Rischio
+CUST_1455,A Rischio
+CUST_1456,Campioni
+CUST_1457,A Rischio
+CUST_1458,Fedeli
+CUST_1459,Nuovi/Occasionali
+CUST_1460,Nuovi/Occasionali
+CUST_1461,A Rischio
+CUST_1462,A Rischio
+CUST_1463,A Rischio
+CUST_1464,Fedeli
+CUST_1465,A Rischio
+CUST_1466,Nuovi/Occasionali
+CUST_1467,Fedeli
+CUST_1468,Nuovi/Occasionali
+CUST_1469,Nuovi/Occasionali
+CUST_1470,Nuovi/Occasionali
+CUST_1471,Nuovi/Occasionali
+CUST_1472,Fedeli
+CUST_1473,Campioni
+CUST_1474,Fedeli
+CUST_1475,Campioni
+CUST_1476,Campioni
+CUST_1477,Nuovi/Occasionali
+CUST_1478,Campioni
+CUST_1479,Campioni
+CUST_1480,Nuovi/Occasionali
+CUST_1481,A Rischio
+CUST_1482,A Rischio
+CUST_1483,A Rischio
+CUST_1484,A Rischio
+CUST_1485,Campioni
+CUST_1486,Fedeli
+CUST_1487,Fedeli
+CUST_1488,Fedeli
+CUST_1489,Fedeli
+CUST_1490,Fedeli
+CUST_1491,Nuovi/Occasionali
+CUST_1492,A Rischio
+CUST_1493,Fedeli
+CUST_1494,Campioni
+CUST_1495,A Rischio
+CUST_1496,Campioni
+CUST_1497,Fedeli
+CUST_1498,Fedeli
+CUST_1499,A Rischio
