@@ -3,9 +3,9 @@ Questo script avvia l'intero progetto tramite le seguenti fasi:
 ambiente virtuale -> dipendenze -> dati e clustering -> dashboard.
 
 Utilizzo:
-  python run_all.py                # esegue tutte le fasi, saltando il training se dati e modelli sono già presenti
-  python run_all.py --force        # rigenera dati e modelli da zero
-  python run_all.py --no-launch    # non avvia la dashboard
+  python src/run_all.py                # esegue tutte le fasi, saltando il training se dati e modelli sono già presenti
+  python src/run_all.py --force        # rigenera dati e modelli da zero
+  python src/run_all.py --no-launch    # non avvia la dashboard
 """
 import argparse
 import os
@@ -13,7 +13,9 @@ import subprocess
 import sys
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parent  # cartella in cui si trova questo script
+SCRIPT_DIR = Path(__file__).resolve().parent  # cartella in cui si trova questo script
+# Se lo script si trova in src/, la radice del progetto (dove creare venv e cercare requirements.txt) è la cartella superiore
+ROOT = SCRIPT_DIR.parent if SCRIPT_DIR.name == "src" else SCRIPT_DIR
 SCRIPTS = ROOT / "src" if (ROOT / "src").exists() else ROOT
 
 
@@ -40,7 +42,7 @@ def main() -> None:
     if args.no_venv:
         python = sys.executable
     else:
-        # 1. l'ambiente virtuale viene creato solo se non è già presente
+        # 1. l'ambiente virtuale viene creato nella cartella principale (ROOT) solo se non è già presente
         venv_dir = ROOT / "venv"
         if not venv_dir.exists():
             print("[+] Creazione dell'ambiente virtuale Python (venv)...")
@@ -76,7 +78,11 @@ def main() -> None:
     print("\n===================================================")
     print("   TUTTO PRONTO! Avvio della Dashboard Streamlit...")
     print("===================================================\n")
-    subprocess.run([python, "-m", "streamlit", "run", str(SCRIPTS / "dashboard.py")], cwd=ROOT, env=env)
+    subprocess.run(
+        [python, "-m", "streamlit", "run", str(SCRIPTS / "dashboard.py"), "--browser.gatherUsageStats", "false"],
+        cwd=ROOT,
+        env=env,
+    )
 
 
 if __name__ == "__main__":

@@ -36,13 +36,23 @@ AXIS_LABELS = {  # nomi degli assi, utilizzati nei menu a tendina e nei grafici
 # Assegnazione colori, in modo che ogni segmento abbia sempre lo stesso colore in tutti i grafici
 COLOR_MAP = {
     "Campioni": "#2E7D32",
-    "Fedeli": "#1976D2",
-    "Occasionali": "#00ACC1",
-    "Nuovi": "#F9A825",
-    "A Rischio": "#C62828",
+    "Fedeli": "#1F5FA8",
+    "Occasionali": "#13919F",
+    "Nuovi": "#E0A100",
+    "A Rischio": "#C0392B",
 }
 
-# Per ogni segmento: (interpretazione, azione di marketing consigliata). Vengono mostrate nella prima scheda della dashboard
+# Palette neutra dell'interfaccia: definita una sola volta e riusata per sfondi, testi e bordi
+INK = "#1B2430"        # testo principale
+MUTED = "#667085"      # testo secondario
+ACCENT = "#0F3D6E"     # colore istituzionale (titoli, tab attiva)
+SURFACE = "#FFFFFF"    # sfondo delle schede
+PAGE_BG = "#F4F6F9"    # sfondo della pagina
+BORDER = "#E1E6ED"     # bordi e griglie
+SHADOW = "0 1px 3px rgba(16, 24, 40, 0.04), 0 1px 2px rgba(16, 24, 40, 0.02)"  # ombra leggera delle schede
+FONT = "Inter, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif"
+
+# Per ogni segmento: (interpretazione, azione di marketing consigliata). Vengono mostrate nella barra laterale
 SEGMENT_INFO = {
     "Campioni": ("Clienti molto attivi, recenti e ad alto valore.",
                  "Programmi VIP, anteprime esclusive, upsell di servizi premium."),
@@ -57,7 +67,119 @@ SEGMENT_INFO = {
 }
 
 # Impostazioni della pagina (deve essere il primo comando di Streamlit, altrimenti viene generato un errore)
-st.set_page_config(page_title="Dashboard Segmentazione Clienti - PW 28", page_icon="📊", layout="wide")
+st.set_page_config(page_title="Dashboard Segmentazione Clienti - PW 28", layout="wide")
+
+# Foglio di stile iniettato nella pagina: uniforma font, sfondi, schede KPI, tab, form e barra laterale
+STYLE = f"""
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+html, body, [class*="css"], [data-testid="stAppViewContainer"] {{
+    font-family: {FONT};
+    color: {INK};
+}}
+[data-testid="stAppViewContainer"] {{ background: {PAGE_BG}; }}
+[data-testid="stHeader"] {{ background: transparent; }}
+/* Nasconde il menu e il pie' di pagina predefiniti di Streamlit per pulire gli screenshot */
+#MainMenu, footer {{ visibility: hidden; }}
+.block-container {{ padding-top: 2rem; padding-bottom: 3.5rem; max-width: 1400px; }}
+
+/* Barra laterale: riduce lo spazio vuoto in alto e compatta la distanza tra i widget */
+[data-testid="stSidebar"] {{ background: {SURFACE}; border-right: 1px solid {BORDER}; }}
+[data-testid="stSidebarHeader"] {{
+    height: auto !important;
+    min-height: 0 !important;
+    padding: .5rem .75rem 0 .75rem !important;
+    margin-bottom: -0.6rem !important;
+}}
+[data-testid="stSidebarContent"],
+[data-testid="stSidebarUserContent"] {{
+    padding-top: 0 !important;
+    padding-bottom: 1rem !important;
+}}
+[data-testid="stSidebar"] [data-testid="stVerticalBlock"] {{ gap: 0.45rem !important; }}
+[data-testid="stSidebar"] h2 {{ font-size: 1rem; font-weight: 600; color: {ACCENT}; margin: 0; }}
+[data-testid="stSidebar"] h3 {{ font-size: .92rem; font-weight: 600; color: {INK}; margin: .35rem 0 .2rem 0; }}
+.sidebar-sub {{
+    font-size: .78rem;
+    color: {MUTED};
+    margin: 0 0 .35rem 0;
+    padding-bottom: .45rem;
+    border-bottom: 1px solid {BORDER};
+}}
+
+/* Intestazione della pagina */
+.page-head {{ border-bottom: 1px solid {BORDER}; padding-bottom: 1.15rem; margin-bottom: 1.5rem; }}
+.page-eyebrow {{ font-size: .78rem; font-weight: 600; letter-spacing: .08em;
+                 text-transform: uppercase; color: {MUTED}; margin: 0 0 .35rem 0; }}
+.page-title {{ font-size: 2rem; font-weight: 700; color: {ACCENT}; margin: 0 0 .4rem 0; line-height: 1.2; }}
+.page-sub {{ font-size: 1rem; color: {MUTED}; margin: 0; max-width: 62rem; }}
+
+/* Schede KPI */
+[data-testid="stMetric"] {{
+    background: {SURFACE};
+    border: 1px solid {BORDER};
+    border-radius: 12px;
+    padding: 1.05rem 1.2rem;
+    box-shadow: {SHADOW};
+}}
+[data-testid="stMetricLabel"] p {{ font-size: .8rem; font-weight: 500; color: {MUTED}; }}
+[data-testid="stMetricValue"] {{ font-size: 1.6rem; font-weight: 700; color: {INK}; }}
+
+/* Tab di navigazione */
+[data-baseweb="tab-list"] {{ gap: 6px; border-bottom: 1px solid {BORDER}; margin-bottom: 1rem; }}
+button[data-baseweb="tab"] {{
+    font-size: .94rem;
+    font-weight: 500;
+    color: {MUTED};
+    padding: .65rem 1.05rem;
+    border-radius: 8px 8px 0 0;
+    transition: background-color .15s ease, color .15s ease;
+}}
+button[data-baseweb="tab"]:hover {{ background-color: rgba(15, 61, 110, 0.05); color: {INK}; }}
+button[data-baseweb="tab"][aria-selected="true"] {{ color: {ACCENT}; font-weight: 600; }}
+div[data-baseweb="tab-highlight"] {{ background-color: {ACCENT}; height: 2.5px; }}
+
+/* Titoli di sezione */
+h2, h3 {{ color: {INK}; font-weight: 600; letter-spacing: -.01em; margin-top: .4rem; }}
+
+/* Riquadri compatti dei segmenti nella sidebar */
+.seg-grid {{ display: grid; grid-template-columns: 1fr; gap: 6px; }}
+.seg-card {{
+    background: #F8FAFC;
+    border: 1px solid {BORDER};
+    border-left: 3.5px solid {BORDER};
+    border-radius: 8px;
+    padding: .48rem .7rem;
+}}
+.seg-badge {{
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-weight: 600;
+    font-size: .82rem;
+    margin-bottom: .15rem;
+}}
+.seg-dot {{ width: 7px; height: 7px; border-radius: 50%; display: inline-block; }}
+.seg-desc {{ margin: 0 0 .22rem 0; font-size: .76rem; color: {INK}; line-height: 1.32; }}
+.seg-action {{ margin: 0; font-size: .74rem; color: {MUTED}; line-height: 1.3; }}
+.seg-action b {{ color: {INK}; font-weight: 600; }}
+
+/* Tabelle, grafici e form contenuti in riquadri bianchi uniformi */
+[data-testid="stDataFrame"],
+[data-testid="stPlotlyChart"],
+[data-testid="stForm"] {{
+    background: {SURFACE};
+    border: 1px solid {BORDER};
+    border-radius: 12px;
+    box-shadow: {SHADOW};
+}}
+[data-testid="stDataFrame"] {{ overflow: hidden; }}
+[data-testid="stPlotlyChart"] {{ padding: .5rem .6rem; }}
+[data-testid="stForm"] {{ padding: 1.25rem 1.35rem; }}
+</style>
+"""
+st.markdown(STYLE, unsafe_allow_html=True)
 
 
 # @st.cache_data: il csv viene letto una sola volta e poi mantenuto in memoria in modo da non rallentare la lettura
@@ -98,6 +220,21 @@ def classify(raw: pd.DataFrame) -> pd.DataFrame:
     return out
 
 
+def style_fig(fig):
+    """Applica a ogni grafico lo stesso stile (font, griglie, legenda orizzontale in basso e margini)."""
+    fig.update_layout(
+        font=dict(family=FONT, size=13, color=INK),
+        paper_bgcolor="rgba(0,0,0,0)", plot_bgcolor="rgba(0,0,0,0)",
+        margin=dict(l=14, r=14, t=56, b=48),
+        title=dict(font=dict(size=15, color=INK), x=0.01, xanchor="left"),
+        legend=dict(title_text="", orientation="h", yanchor="top", y=-0.22, x=0),
+        hoverlabel=dict(bgcolor="white", font_size=12, bordercolor=BORDER),
+    )
+    fig.update_xaxes(gridcolor=BORDER, zerolinecolor=BORDER, linecolor=BORDER)
+    fig.update_yaxes(gridcolor=BORDER, zerolinecolor=BORDER, linecolor=BORDER)
+    return fig
+
+
 # Vengono caricati dati e modelli (l'operazione viene eseguita a ogni interazione, velocizzata grazie alla cache)
 base_df = load_data()
 scaler, kmeans, pca, mapping, meta = load_models()
@@ -116,14 +253,21 @@ if st.session_state.new_customers:
     df = pd.concat([base_df, pd.DataFrame(st.session_state.new_customers)], ignore_index=True)
 
 #  Titolo  #
-st.title("📊 Dashboard")
 st.markdown(
-    "Prototipo di clustering RFM con dashboard per il marketing"
-    f"con **K-Means (K = {meta['k']})** su metriche RFM (Recency, Frequency, Monetary). "
+    f"""
+    <div class="page-head">
+        <p class="page-eyebrow">PW 28 · Machine Learning non supervisionato</p>
+        <h1 class="page-title">Segmentazione automatica della clientela</h1>
+        <p class="page-sub">Prototipo di clustering comportamentale per il marketing con K-Means (K = {meta['k']})
+        su metriche RFM (Recency, Frequency, Monetary). Dati interamente sintetici.</p>
+    </div>
+    """,
+    unsafe_allow_html=True,
 )
 
 #  Filtri  #
-st.sidebar.header("🔍 Filtri interattivi")
+st.sidebar.header("Filtri")
+st.sidebar.markdown('<p class="sidebar-sub">Filtra il campione di clienti analizzato</p>', unsafe_allow_html=True)
 
 # Filtro per periodo. Con un intervallo di date, date_input restituisce una tupla solo quando
 # l'utente ha selezionato sia la data di inizio sia quella di fine, quindi il controllo viene effettuato successivamente nel codice
@@ -146,8 +290,30 @@ if selected_category != "Tutte":
 
 # Se i filtri non lasciano nessun cliente viene mostrato un avviso, in modo che i grafici non riportino errori
 if filtered_df.empty:
-    st.warning("⚠️ Nessun cliente corrisponde ai filtri selezionati.")
+    st.warning("Nessun cliente corrisponde ai filtri selezionati.")
     st.stop()
+
+# Ordinamento dei segmenti per spesa totale media decrescente, così la legenda nella sidebar segue la tabella profilo
+segment_order = (
+    filtered_df.groupby("cluster_label")["total_spent"]
+    .mean()
+    .sort_values(ascending=False)
+    .index.tolist()
+)
+
+# Riquadri compatti nella sidebar con interpretazione e azione consigliata per i segmenti presenti
+st.sidebar.subheader("Interpretazione e azioni")
+cards = "".join(
+    f'<div class="seg-card" style="border-left-color:{COLOR_MAP.get(s, BORDER)}">'
+    f'<div class="seg-badge" style="color:{COLOR_MAP.get(s, INK)}">'
+    f'<span class="seg-dot" style="background:{COLOR_MAP.get(s, INK)}"></span>{s}'
+    f'</div>'
+    f'<p class="seg-desc">{SEGMENT_INFO[s][0]}</p>'
+    f'<p class="seg-action"><b>Azione:</b> {SEGMENT_INFO[s][1]}</p>'
+    f'</div>'
+    for s in segment_order if s in SEGMENT_INFO
+)
+st.sidebar.markdown(f'<div class="seg-grid">{cards}</div>', unsafe_allow_html=True)
 
 #  KPI  #
 # Indicatori riassuntivi sui clienti filtrati, uno per ogni colonna
@@ -158,11 +324,11 @@ c3.metric("Importo medio/richiesta", f"€ {filtered_df['monetary_avg'].mean():.
 c4.metric("Frequenza media", f"{filtered_df['frequency'].mean():.1f} richieste")
 c5.metric("Recency media", f"{filtered_df['recency'].mean():.1f} giorni")
 
-st.markdown("---")
+st.markdown("<div style='height: .75rem'></div>", unsafe_allow_html=True)
 
 # Le quattro schede della dashboard
 tab1, tab2, tab3, tab4 = st.tabs(
-    ["📌 Analisi dei segmenti", "🔮 Nuovo cliente", "📁 Classificazione da CSV", "📐 Validazione e modelli"]
+    ["Analisi dei segmenti", "Nuovo cliente", "Classificazione da CSV", "Validazione e modelli"]
 )
 
 #  TAB 1: analisi dei segmenti  #
@@ -177,19 +343,21 @@ with tab1:
         # scatter interattivo: un colore per ogni segmento
         # la dimensione della bolla rappresenta la frequenza
         fig = px.scatter(
-            filtered_df, x=x_axis, y=y_axis, color="cluster_label", size="frequency",
+            filtered_df, x=x_axis, y=y_axis, color="cluster_label", size="frequency", size_max=18,
             hover_name="customer_id", hover_data=["region", CAT_COL],
             color_discrete_map=COLOR_MAP, labels={**AXIS_LABELS, "cluster_label": "Segmento"},
             title="Segmenti di clientela (dimensione bolla = frequenza)",
         )
-        st.plotly_chart(fig, width="stretch")
+        fig.update_traces(marker=dict(opacity=0.8, line=dict(width=0.6, color="white")))
+        st.plotly_chart(style_fig(fig), width="stretch")
     with col_b:
         # grafico a ciambella con la quota di clienti di ciascun segmento
-        fig_pie = px.pie(filtered_df, names="cluster_label", hole=0.4, color="cluster_label",
+        fig_pie = px.pie(filtered_df, names="cluster_label", hole=0.55, color="cluster_label",
                          color_discrete_map=COLOR_MAP, title="Composizione dei segmenti")
-        st.plotly_chart(fig_pie, width="stretch")
+        fig_pie.update_traces(textinfo="percent", marker=dict(line=dict(color="white", width=2)))
+        st.plotly_chart(style_fig(fig_pie), width="stretch")
 
-    st.subheader("📋 Profilo di ciascun segmento")
+    st.subheader("Profilo di ciascun segmento")
     # tabella del profilo: per ogni segmento vengono calcolati il numero di clienti e le medie delle variabili (groupby + agg)
     profile = filtered_df.groupby("cluster_label").agg(
         clienti=("customer_id", "count"),
@@ -206,14 +374,6 @@ with tab1:
     }).sort_values("Spesa totale media (€)", ascending=False)
     profile.index.name = "Segmento"
     st.dataframe(profile, width="stretch")
-
-    st.subheader("💡 Interpretazione e azioni di marketing")
-    # tabella con interpretazione e azione consigliata, limitata ai segmenti effettivamente presenti
-    actions = pd.DataFrame([
-        {"Segmento": s, "Interpretazione": SEGMENT_INFO[s][0], "Azione consigliata": SEGMENT_INFO[s][1]}
-        for s in profile.index if s in SEGMENT_INFO
-    ])
-    st.table(actions.set_index("Segmento"))
 
 #  TAB 2: nuovo cliente  #
 with tab2:
@@ -246,7 +406,7 @@ with tab2:
         }])
         result = classify(row).iloc[0]  # prima e unica riga del risultato
         label = result["cluster_label"]
-        msg = f"🎯 Il cliente appartiene al segmento **{label}**. Azione consigliata: {SEGMENT_INFO.get(label, ('', ''))[1]}"
+        msg = f"Il cliente appartiene al segmento **{label}**. Azione consigliata: {SEGMENT_INFO.get(label, ('', ''))[1]}"
         if add_to_dash:
             st.session_state.new_customers.append(result.to_dict())
             st.session_state.flash = msg + " Cliente aggiunto alla dashboard."
@@ -267,7 +427,7 @@ with tab3:
     if uploaded:
         try:
             batch = pd.read_csv(uploaded)
-        except Exception as exc:  #se il file non può essere letto
+        except Exception as exc:  # se il file non può essere letto
             st.error(f"Impossibile leggere il file: {exc}")
             batch = None
         if batch is not None:
@@ -316,7 +476,7 @@ with tab4:
         cm = pd.read_csv(REPORTS_DIR / "confusion_matrix.csv", index_col=0)
         fig_cm = px.imshow(cm, text_auto=True, aspect="auto", color_continuous_scale="Blues",
                            labels={"x": "Segmento individuato", "y": "Profilo reale", "color": "Clienti"})
-        st.plotly_chart(fig_cm, width="stretch")
+        st.plotly_chart(style_fig(fig_cm), width="stretch")
 
     # PCA: riduce le 3 feature a 2 componenti in modo che i cluster possano essere rappresentati su un piano.
     # Nel titolo viene riportata la varianza spiegata dalle due componenti
@@ -326,4 +486,5 @@ with tab4:
         color_discrete_map=COLOR_MAP, labels={"cluster_label": "Segmento"},
         title=f"Proiezione PCA 2D (varianza spiegata: {var[0] * 100:.1f}% + {var[1] * 100:.1f}%)",
     )
-    st.plotly_chart(fig_pca, width="stretch")
+    fig_pca.update_traces(marker=dict(size=8, opacity=0.8, line=dict(width=0.6, color="white")))
+    st.plotly_chart(style_fig(fig_pca), width="stretch")
