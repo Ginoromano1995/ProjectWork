@@ -43,16 +43,15 @@ COLOR_MAP = {
 }
 
 # Palette neutra dell'interfaccia: definita una sola volta e riusata per sfondi, testi e bordi
-INK = "#1B2430"        # testo principale
-MUTED = "#667085"      # testo secondario
-ACCENT = "#0F3D6E"     # colore istituzionale (titoli, tab attiva)
-SURFACE = "#FFFFFF"    # sfondo delle schede
-PAGE_BG = "#F4F6F9"    # sfondo della pagina
+NERO = "#1B2430"        # testo principale
+GRIGIO = "#667085"      # testo secondario
+BIANCOS = "#FFFFFF"    # sfondo schede
+BIANCOP = "#F4F6F9"    # sfondo pagina
 BORDER = "#E1E6ED"     # bordi e griglie
-SHADOW = "0 1px 3px rgba(16, 24, 40, 0.04), 0 1px 2px rgba(16, 24, 40, 0.02)"  # ombra leggera delle schede
+SHADOW = "0 1px 3px rgba(16, 24, 40, 0.04), 0 1px 2px rgba(16, 24, 40, 0.02)"  # ombra leggera schede
 FONT = "Inter, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif"
 
-# Per ogni segmento: (interpretazione, azione di marketing consigliata). Vengono mostrate nella barra laterale
+# Per ogni segmento: (interpretazione, azione di marketing consigliata). Mostrate nella barra laterale
 SEGMENT_INFO = {
     "Campioni": ("Clienti molto attivi, recenti e ad alto valore.",
                  "Programmi VIP, anteprime esclusive, upsell di servizi premium."),
@@ -76,21 +75,19 @@ STYLE = f"""
 
 html, body, [class*="css"], [data-testid="stAppViewContainer"] {{
     font-family: {FONT};
-    color: {INK};
+    color: {NERO};
 }}
-[data-testid="stAppViewContainer"] {{ background: {PAGE_BG}; }}
+[data-testid="stAppViewContainer"] {{ background: {BIANCOP}; }}
 [data-testid="stHeader"] {{ background: transparent; }}
 /* Nasconde il menu e il pie' di pagina predefiniti di Streamlit per pulire gli screenshot */
 #MainMenu, footer {{ visibility: hidden; }}
 .block-container {{ padding-top: 2rem; padding-bottom: 3.5rem; max-width: 1400px; }}
 
-/* Barra laterale: riduce lo spazio vuoto in alto e compatta la distanza tra i widget */
-[data-testid="stSidebar"] {{ background: {SURFACE}; border-right: 1px solid {BORDER}; }}
-[data-testid="stSidebarHeader"] {{
-    height: auto !important;
-    min-height: 0 !important;
-    padding: .5rem .75rem 0 .75rem !important;
-    margin-bottom: -0.6rem !important;
+/* Barra laterale */
+[data-testid="stSidebar"] {{
+    background: {BIANCOS};
+    border-right: 1px solid {BORDER};
+    width: 400px;
 }}
 [data-testid="stSidebarContent"],
 [data-testid="stSidebarUserContent"] {{
@@ -98,11 +95,11 @@ html, body, [class*="css"], [data-testid="stAppViewContainer"] {{
     padding-bottom: 1rem !important;
 }}
 [data-testid="stSidebar"] [data-testid="stVerticalBlock"] {{ gap: 0.45rem !important; }}
-[data-testid="stSidebar"] h2 {{ font-size: 1rem; font-weight: 600; color: {ACCENT}; margin: 0; }}
-[data-testid="stSidebar"] h3 {{ font-size: .92rem; font-weight: 600; color: {INK}; margin: .35rem 0 .2rem 0; }}
+[data-testid="stSidebar"] h2 {{ font-size: 1rem; font-weight: 600; color: {NERO}; margin: 0; }}
+[data-testid="stSidebar"] h3 {{ font-size: .92rem; font-weight: 600; color: {NERO}; margin: .35rem 0 .2rem 0; }}
 .sidebar-sub {{
     font-size: .78rem;
-    color: {MUTED};
+    color: {GRIGIO};
     margin: 0 0 .35rem 0;
     padding-bottom: .45rem;
     border-bottom: 1px solid {BORDER};
@@ -111,37 +108,91 @@ html, body, [class*="css"], [data-testid="stAppViewContainer"] {{
 /* Intestazione della pagina */
 .page-head {{ border-bottom: 1px solid {BORDER}; padding-bottom: 1.15rem; margin-bottom: 1.5rem; }}
 .page-eyebrow {{ font-size: .78rem; font-weight: 600; letter-spacing: .08em;
-                 text-transform: uppercase; color: {MUTED}; margin: 0 0 .35rem 0; }}
-.page-title {{ font-size: 2rem; font-weight: 700; color: {ACCENT}; margin: 0 0 .4rem 0; line-height: 1.2; }}
-.page-sub {{ font-size: 1rem; color: {MUTED}; margin: 0; max-width: 62rem; }}
+                 text-transform: uppercase; color: {GRIGIO}; margin: 0 0 .35rem 0; }}
+.page-title {{ font-size: 2rem; font-weight: 700; color: {NERO}; margin: 0 0 .4rem 0; line-height: 1.2; }}
+.page-sub {{ font-size: 1rem; color: {GRIGIO}; margin: 0; max-width: 62rem; }}
 
 /* Schede KPI */
 [data-testid="stMetric"] {{
-    background: {SURFACE};
+    background: {BIANCOS};
     border: 1px solid {BORDER};
     border-radius: 12px;
     padding: 1.05rem 1.2rem;
     box-shadow: {SHADOW};
 }}
-[data-testid="stMetricLabel"] p {{ font-size: .8rem; font-weight: 500; color: {MUTED}; }}
-[data-testid="stMetricValue"] {{ font-size: 1.6rem; font-weight: 700; color: {INK}; }}
+[data-testid="stMetricLabel"] p {{ font-size: .8rem; font-weight: 500; color: {GRIGIO}; }}
+[data-testid="stMetricValue"] {{ font-size: 1.6rem; font-weight: 700; color: {NERO}; }}
+[data-testid="stMetricDelta"],
+[data-testid="stMetricDelta"] * {{
+    color: {NERO} !important;
+}}
 
 /* Tab di navigazione */
-[data-baseweb="tab-list"] {{ gap: 6px; border-bottom: 1px solid {BORDER}; margin-bottom: 1rem; }}
-button[data-baseweb="tab"] {{
+[data-testid="stTabs"] [role="tablist"] {{
+    gap: 6px;
+    border-bottom: 1px solid {BORDER};
+    margin-bottom: 1rem;
+}}
+[data-testid="stTabs"] [role="tab"] {{
     font-size: .94rem;
     font-weight: 500;
-    color: {MUTED};
+    color: {NERO} !important;
+    background-color: {BIANCOS} !important;
+    border: 1px solid {BORDER} !important;
+    border-bottom: none !important;
     padding: .65rem 1.05rem;
     border-radius: 8px 8px 0 0;
     transition: background-color .15s ease, color .15s ease;
 }}
-button[data-baseweb="tab"]:hover {{ background-color: rgba(15, 61, 110, 0.05); color: {INK}; }}
-button[data-baseweb="tab"][aria-selected="true"] {{ color: {ACCENT}; font-weight: 600; }}
-div[data-baseweb="tab-highlight"] {{ background-color: {ACCENT}; height: 2.5px; }}
+[data-testid="stTabs"] [role="tab"] p {{
+    color: {NERO} !important;
+}}
+[data-testid="stTabs"] [role="tab"]:hover {{
+    background-color: #EEF2F7 !important;
+}}
+[data-testid="stTabs"] [role="tab"]:hover p {{
+    color: {NERO} !important;
+}}
+[data-testid="stTabs"] [role="tab"][aria-selected="true"],
+[data-testid="stTabs"] [role="tab"][data-selected="true"] {{
+    background-color: {NERO} !important;
+    border-color: {NERO} !important;
+    font-weight: 600;
+}}
+[data-testid="stTabs"] [role="tab"][aria-selected="true"] p,
+[data-testid="stTabs"] [role="tab"][data-selected="true"] p {{
+    color: #FFFFFF !important;
+}}
+div[data-baseweb="tab-highlight"] {{ background-color: {NERO} !important; height: 2.5px; }}
+
+/* Pulsanti */
+[data-testid="stBaseButton-secondary"],
+[data-testid="stBaseButton-primary"],
+[data-testid="stFormSubmitButton"] button,
+button[kind="secondary"],
+button[kind="primary"] {{
+    background-color: {NERO} !important;
+    color: #FFFFFF !important;
+    border: 1px solid {NERO} !important;
+}}
+[data-testid="stBaseButton-secondary"] *,
+[data-testid="stBaseButton-primary"] *,
+[data-testid="stFormSubmitButton"] button *,
+button[kind="secondary"] *,
+button[kind="primary"] * {{
+    color: #FFFFFF !important;
+}}
+[data-testid="stBaseButton-secondary"]:hover,
+[data-testid="stBaseButton-primary"]:hover,
+[data-testid="stFormSubmitButton"] button:hover,
+button[kind="secondary"]:hover,
+button[kind="primary"]:hover {{
+    background-color: #164E8A !important;
+    border-color: #164E8A !important;
+}}
 
 /* Titoli di sezione */
-h2, h3 {{ color: {INK}; font-weight: 600; letter-spacing: -.01em; margin-top: .4rem; }}
+h2, h3 {{ color: {NERO}; font-weight: 600; letter-spacing: -.01em; margin-top: .4rem; }}
 
 /* Riquadri compatti dei segmenti nella sidebar */
 .seg-grid {{ display: grid; grid-template-columns: 1fr; gap: 6px; }}
@@ -157,19 +208,19 @@ h2, h3 {{ color: {INK}; font-weight: 600; letter-spacing: -.01em; margin-top: .4
     align-items: center;
     gap: 6px;
     font-weight: 600;
-    font-size: .82rem;
+    font-size: 16px !important;
     margin-bottom: .15rem;
 }}
 .seg-dot {{ width: 7px; height: 7px; border-radius: 50%; display: inline-block; }}
-.seg-desc {{ margin: 0 0 .22rem 0; font-size: .76rem; color: {INK}; line-height: 1.32; }}
-.seg-action {{ margin: 0; font-size: .74rem; color: {MUTED}; line-height: 1.3; }}
-.seg-action b {{ color: {INK}; font-weight: 600; }}
+.seg-desc {{ margin: 0 0 .22rem 0; font-size: 14px !important; color: {NERO}; line-height: 1.32; }}
+.seg-action {{ margin: 0; font-size: 12px !important; color: {GRIGIO}; line-height: 1.3; }}
+.seg-action b {{ color: {NERO}; font-weight: 600; }}
 
-/* Tabelle, grafici e form contenuti in riquadri bianchi uniformi */
+/* Tabelle, grafici e form contenuti nei riquadri bianchi*/
 [data-testid="stDataFrame"],
 [data-testid="stPlotlyChart"],
 [data-testid="stForm"] {{
-    background: {SURFACE};
+    background: {BIANCOS};
     border: 1px solid {BORDER};
     border-radius: 12px;
     box-shadow: {SHADOW};
@@ -177,6 +228,20 @@ h2, h3 {{ color: {INK}; font-weight: 600; letter-spacing: -.01em; margin-top: .4
 [data-testid="stDataFrame"] {{ overflow: hidden; }}
 [data-testid="stPlotlyChart"] {{ padding: .5rem .6rem; }}
 [data-testid="stForm"] {{ padding: 1.25rem 1.35rem; }}
+
+/* Messaggio di conferma (st.success / alert) */
+[data-testid="stAlert"],
+[data-testid="stAlert"] p,
+[data-testid="stAlert"] span,
+[data-testid="stAlert"] strong {{
+    color: {NERO} !important;
+}}
+
+/* Etichette dei campi nei form e widget */
+[data-testid="stForm"] [data-testid="stWidgetLabel"],
+[data-testid="stForm"] [data-testid="stWidgetLabel"] p {{
+    color: {NERO} !important;
+}}
 </style>
 """
 st.markdown(STYLE, unsafe_allow_html=True)
@@ -223,15 +288,22 @@ def classify(raw: pd.DataFrame) -> pd.DataFrame:
 def style_fig(fig):
     """Applica a ogni grafico lo stesso stile (font, griglie, legenda orizzontale in basso e margini)."""
     fig.update_layout(
-        font=dict(family=FONT, size=13, color=INK),
+        font=dict(family=FONT, size=13, color=NERO),
         paper_bgcolor="rgba(0,0,0,0)", plot_bgcolor="rgba(0,0,0,0)",
         margin=dict(l=14, r=14, t=56, b=48),
-        title=dict(font=dict(size=15, color=INK), x=0.01, xanchor="left"),
-        legend=dict(title_text="", orientation="h", yanchor="top", y=-0.22, x=0),
+        title=dict(font=dict(size=15, color=NERO), x=0.01, xanchor="left"),
+        legend=dict(title_text="", orientation="h", yanchor="top", y=-0.22, x=0, font=dict(color=NERO)),
         hoverlabel=dict(bgcolor="white", font_size=12, bordercolor=BORDER),
+        coloraxis_colorbar=dict(tickfont=dict(color=NERO), title=dict(font=dict(color=NERO))),
     )
-    fig.update_xaxes(gridcolor=BORDER, zerolinecolor=BORDER, linecolor=BORDER)
-    fig.update_yaxes(gridcolor=BORDER, zerolinecolor=BORDER, linecolor=BORDER)
+    fig.update_xaxes(
+        gridcolor=BORDER, zerolinecolor=BORDER, linecolor=BORDER,
+        tickfont=dict(color=NERO), title=dict(font=dict(color=NERO)),
+    )
+    fig.update_yaxes(
+        gridcolor=BORDER, zerolinecolor=BORDER, linecolor=BORDER,
+        tickfont=dict(color=NERO), title=dict(font=dict(color=NERO)),
+    )
     return fig
 
 
@@ -256,10 +328,10 @@ if st.session_state.new_customers:
 st.markdown(
     f"""
     <div class="page-head">
-        <p class="page-eyebrow">PW 28 · Machine Learning non supervisionato</p>
-        <h1 class="page-title">Segmentazione automatica della clientela</h1>
+        <p class="page-eyebrow">PW 28 · Intelligenza Artificiale e Machine Learning per i processi</p>
+        <h1 class="page-title">Prototipo di clustering RFM con dashboard di marketing</h1>
         <p class="page-sub">Prototipo di clustering comportamentale per il marketing con K-Means (K = {meta['k']})
-        su metriche RFM (Recency, Frequency, Monetary). Dati interamente sintetici.</p>
+        su metriche RFM (Recency, Frequency, Monetary).</p>
     </div>
     """,
     unsafe_allow_html=True,
@@ -301,12 +373,12 @@ segment_order = (
     .index.tolist()
 )
 
-# Riquadri compatti nella sidebar con interpretazione e azione consigliata per i segmenti presenti
-st.sidebar.subheader("Interpretazione e azioni")
+# Riquadri compatti nella sidebar con azioni consigliate per i segmenti presenti
+st.sidebar.subheader("Azioni consigliate")
 cards = "".join(
     f'<div class="seg-card" style="border-left-color:{COLOR_MAP.get(s, BORDER)}">'
-    f'<div class="seg-badge" style="color:{COLOR_MAP.get(s, INK)}">'
-    f'<span class="seg-dot" style="background:{COLOR_MAP.get(s, INK)}"></span>{s}'
+    f'<div class="seg-badge" style="color:{COLOR_MAP.get(s, NERO)}">'
+    f'<span class="seg-dot" style="background:{COLOR_MAP.get(s, NERO)}"></span>{s}'
     f'</div>'
     f'<p class="seg-desc">{SEGMENT_INFO[s][0]}</p>'
     f'<p class="seg-action"><b>Azione:</b> {SEGMENT_INFO[s][1]}</p>'

@@ -141,7 +141,7 @@ def choose_k(k_df: pd.DataFrame, forced_k=None):
     k = int(best["K"])
     motivation = (
         f"K={k} ha la silhouette piu' alta ({best['Silhouette']:.4f}) tra le configurazioni "
-        f"con {K_MIN}-{K_MAX} gruppi richieste dalla traccia."
+        f"con {K_MIN}-{K_MAX} gruppi."
     )
     return k, motivation
 
